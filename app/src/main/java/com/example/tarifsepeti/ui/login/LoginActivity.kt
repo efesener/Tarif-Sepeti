@@ -1,6 +1,7 @@
 package com.example.tarifsepeti.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -16,6 +17,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.example.tarifsepeti.R
+import com.example.tarifsepeti.TarifListele
 
 class LoginActivity : AppCompatActivity() {
 
@@ -106,6 +108,15 @@ class LoginActivity : AppCompatActivity() {
                 "$welcome $displayName",
                 Toast.LENGTH_LONG
         ).show()
+
+        // tarif listeleye gönderilecek
+        fun tarifListele(){
+            val intent = Intent(applicationContext,TarifListele::class.java)
+            intent.putExtra("kullaniciAdi", displayName)
+            startActivity(intent)
+        }
+
+        tarifListele()
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {

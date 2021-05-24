@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">TarifSepeti</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="prompt_email">Kullanıcı Adı</string>
+    <string name="prompt_password">Şifre</string>
+    <string name="action_sign_in">Giriş yap veya kayıt ol</string>
+    <string name="action_sign_in_short">Giriş Yap</string>
+    <string name="welcome">"Hoş geldiniz!"</string>
+    <string name="invalid_username">Kullanıcı adı yanlış!</string>
+    <string name="invalid_password">Şifre en az 6 karakterden oluşmalı!</string>
+    <string name="login_failed">"Giriş başarısız!"</string>
 </resources>
