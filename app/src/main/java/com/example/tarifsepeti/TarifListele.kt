@@ -15,33 +15,8 @@ class TarifListele : AppCompatActivity() {
         val kullaniciAdi = intent.getStringExtra("kullaniciAdi")
 
         txtKullaniciAdi.text = kullaniciAdi
+        // giriş yapan kullanıcının adını al
 
-        // örnek tablo
-        try {
-            val veritabani = this.openOrCreateDatabase("Tarifler", Context.MODE_PRIVATE, null)
-            veritabani.execSQL("CREATE TABLE IF NOT EXISTS tarifler (id INTEGER PRIMARY KEY, isim VARCHAR, fiyat INT)")
-
-            /*
-            veritabani.execSQL("INSERT INTO tarifler (isim, fiyat) VALUES ('Yumurta', 55)")
-            veritabani.execSQL("INSERT INTO tarifler (isim, fiyat) VALUES ('Antrikot', 155)")
-            veritabani.execSQL("INSERT INTO tarifler (isim, fiyat) VALUES ('Mkarna', 22)")
-*/
-            val cursor = veritabani.rawQuery("SELECT * FROM tarifler", null)
-
-            val idColumnIndex = cursor.getColumnIndex("id")
-            val isimColumnIndex = cursor.getColumnIndex("isim")
-            val fiyatColumnIndex = cursor.getColumnIndex("fiyat")
-
-            while(cursor.moveToNext()){
-                println("ID : ${cursor.getInt(idColumnIndex)}")
-                println("isim : ${cursor.getString(isimColumnIndex)}")
-            }
-
-            cursor.close()
-
-        }catch (e: Exception){}
 
     }
-
-    // örnek tablo son
 }
