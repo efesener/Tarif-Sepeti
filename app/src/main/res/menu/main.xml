@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Tarif Listele" android:id="@+id/tarifListele"/>
+    <item android:title="Tarif Ekle" android:id="@+id/tarifEkle"/>
+    <item android:title="Tarif Al" android:id="@+id/tarifAl"/>
+</menu>
