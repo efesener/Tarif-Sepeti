@@ -6,13 +6,97 @@
     android:layout_height="match_parent"
     tools:context=".TarifEkle">
 
-    <TextView
-        android:id="@+id/txtKullaniciAdi3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:text="TextView"
+    <EditText
+        android:id="@+id/yemekAdiText"
+        android:layout_width="375dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="286dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Yemek Adını Giiriniz"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/malzemelerText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/tarifText"
+        android:layout_width="372dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="55dp"
+        android:ems="10"
+        android:hint="Tarifinizi Giriniz"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/malzemelerText" />
+
+    <EditText
+        android:id="@+id/malzemelerText"
+        android:layout_width="373dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="18dp"
+        android:ems="10"
+        android:hint="Malzemeleri Giriniz"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tarifText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yemekAdiText" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="164dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="ekle"
+        android:text="Ekle"
+        android:textColor="#fff"
+        app:backgroundTint="#2ecc71 "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtKullaniciAdi3"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tarifText" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="410dp"
+        android:layout_height="214dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginBottom="54dp"
+        android:onClick="gorselEkle"
+        app:layout_constraintBottom_toTopOf="@+id/yemekAdiText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/gorselekleme" />
+
+    <TextView
+        android:id="@+id/txtKullaniciAdi3"
+        android:layout_width="69dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="552dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
