@@ -1,8 +1,10 @@
 package com.example.tarifsepeti
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_list.view.*
 
@@ -27,8 +29,7 @@ class ListeRecyclerAdapter( val yemekListesi:ArrayList<String> , val idListesi:A
         holder.itemView.recycler_list_text.text = yemekListesi[position]
         // holder.itemView.setOnClickListener {
 
-
-       // }  // tıklanınca ne yapılacağını ayarlamak için
+        //}
     }
 
 

@@ -95,6 +95,7 @@ class TarifEkle : AppCompatActivity() {
     // @@@@@@ MENU ILE İLGİLİ FONKSİYONLAR
 
     fun ekle(view:View){
+        Toast.makeText(applicationContext, "Ürün Başarıyla Eklendi", Toast.LENGTH_SHORT).show()
         val yemekIsmi = yemekAdiText.text.toString()
         val yemekMalzemeleri = malzemelerText.text.toString()
         val yemekTarifi = tarifText.text.toString()
@@ -109,7 +110,7 @@ class TarifEkle : AppCompatActivity() {
             try {
 
                     val veritabani = this.openOrCreateDatabase("Yemekler", Context.MODE_PRIVATE,null)
-                    veritabani.execSQL("CREATE TABLE İF NOT EXISTS yemekler (id INTEGER PRIMARY KEY , yemekismi VARCHAR, malzemeler VARCHAR, tarif VARCHAR, gorsel BLOB)")
+                    veritabani.execSQL("CREATE TABLE IF NOT EXISTS yemekler (id INTEGER PRIMARY KEY , yemekismi VARCHAR, malzemeler VARCHAR, tarif VARCHAR, gorsel BLOB)")
 
                     val sqlString ="INSERT INTO yemekler(yemekismi, malzemeler, tarif, gorsel) VALUES (?,?,?,?)"
                     val statement = veritabani.compileStatement(sqlString)
