@@ -6,10 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.ListAdapter
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_tarif_listele.*
+import java.lang.Exception
 
 class TarifListele : AppCompatActivity() {
+
+    var yemekIsmiListesi = ArrayList<String>()
+    var yemekIdListesi = ArrayList<Int>()
+    private lateinit var listeAdapter: ListeRecyclerAdapter
+
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
     var  kullaniciAdi = ""
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
@@ -18,15 +28,22 @@ class TarifListele : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tarif_listele)
 
+        listeAdapter = ListeRecyclerAdapter(yemekIsmiListesi,yemekIdListesi)  // adapteri bağlamak için
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = listeAdapter
+
+        VeriAlma()
+
         // @@@@@@ Kullanıcı giriş yaptıktan sonra tarif listeleye düşer ve intentten gelen kullaniciAdi bilgisi tanımlanır
         val intent = intent
         kullaniciAdi = intent.getStringExtra("kullaniciAdi").toString()
 
-        txtKullaniciAdi.text = kullaniciAdi
+       // txtKullaniciAdi.text = kullaniciAdi
         // @@@@@@ Kullanıcı giriş yaptıktan sonra tarif listeleye düşer ve intentten gelen kullaniciAdi bilgisi tanımlanır
 
     }
 
+    
 
     // @@@@@@ MENU ILE İLGİLİ FONKSİYONLAR
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -76,6 +93,30 @@ class TarifListele : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     // @@@@@@ MENU ILE İLGİLİ FONKSİYONLAR
+
+
+    fun VeriAlma() {
+        try{
+            val database = this.openOrCreateDatabase("Yemekler",Context.MODE_PRIVATE,null)
+            val cursor = database.rawQuery("SELECT * FROM yemekler",null)
+            val yemekIsmiIndex = cursor.getColumnIndex("yemekismi")
+            val yemekIdIndex = cursor.getColumnIndex("id")
+
+            yemekIsmiListesi.clear()
+            yemekIdListesi.clear()
+
+            while (cursor.moveToNext()){
+                yemekIsmiListesi.add(cursor.getString(yemekIsmiIndex))
+                yemekIdListesi.add(cursor.getInt(yemekIdIndex))
+
+            }
+              listeAdapter.notifyDataSetChanged()   //veri değişikliğinde güncellenmesi için
+              cursor.close()
+
+        }
+        catch(e:Exception){
+            e.printStackTrace()
+        }
+    }
 }

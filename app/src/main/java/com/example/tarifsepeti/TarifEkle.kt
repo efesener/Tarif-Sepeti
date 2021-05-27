@@ -20,7 +20,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_tarif_ekle.*
 import kotlinx.android.synthetic.main.activity_tarif_listele.*
-import kotlinx.android.synthetic.main.activity_tarif_listele.txtKullaniciAdi
 import java.io.ByteArrayOutputStream
 
 class TarifEkle : AppCompatActivity() {

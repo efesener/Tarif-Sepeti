@@ -8,7 +8,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_tarif_al.*
 import kotlinx.android.synthetic.main.activity_tarif_listele.*
-import kotlinx.android.synthetic.main.activity_tarif_listele.txtKullaniciAdi
+// import kotlinx.android.synthetic.main.activity_tarif_listele.txtKullaniciAdi
 
 class TarifAl : AppCompatActivity() {
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
