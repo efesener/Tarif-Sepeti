@@ -110,14 +110,15 @@ class TarifEkle : AppCompatActivity() {
             try {
 
                     val veritabani = this.openOrCreateDatabase("Yemekler", Context.MODE_PRIVATE,null)
-                    veritabani.execSQL("CREATE TABLE IF NOT EXISTS yemekler (id INTEGER PRIMARY KEY , yemekismi VARCHAR, malzemeler VARCHAR, tarif VARCHAR, gorsel BLOB)")
+                    veritabani.execSQL("CREATE TABLE IF NOT EXISTS yemekler (id INTEGER PRIMARY KEY , yemekismi VARCHAR, malzemeler VARCHAR, tarif VARCHAR, gorsel BLOB, kullaniciadi VARCHAR)")
 
-                    val sqlString ="INSERT INTO yemekler(yemekismi, malzemeler, tarif, gorsel) VALUES (?,?,?,?)"
+                    val sqlString ="INSERT INTO yemekler(yemekismi, malzemeler, tarif, gorsel,kullaniciIsmi) VALUES (?,?,?,?,?)"
                     val statement = veritabani.compileStatement(sqlString)
                     statement.bindString(1,yemekIsmi)
                     statement.bindString(2,yemekMalzemeleri)
                     statement.bindString(3,yemekTarifi)
                     statement.bindBlob(4,byteDizisi)
+                    statement.bindString(5,kullaniciAdi)
                     statement.execute()
 
             }catch (e:Exception){
@@ -132,13 +133,7 @@ class TarifEkle : AppCompatActivity() {
                 intent.putExtra("yemekTarif", yemekTarifi)
                 startActivity(intent)
             }
-
             tarifListele()
-            /*
-            if (yemekIsmi == "" && yemekMalzemeleri == "" && yemekTarifi == "") {
-                Toast.makeText(applicationContext, "Lütfen Boş Bırakmayınız", Toast.LENGTH_LONG)
-                    .show()
-            }*/
         }
     }
 
