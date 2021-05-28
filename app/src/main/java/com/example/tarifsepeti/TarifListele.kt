@@ -97,7 +97,7 @@ class TarifListele : AppCompatActivity() {
     fun VeriAlma() {
         try{
             val database = this.openOrCreateDatabase("Yemekler",Context.MODE_PRIVATE,null)
-            val cursor = database.rawQuery("SELECT * FROM yemekler",null)
+            val cursor = database.rawQuery("SELECT * FROM yemekler WHERE kullaniciAdi =${kullaniciAdi}",null)
             val yemekIsmiIndex = cursor.getColumnIndex("yemekismi")
             val yemekIdIndex = cursor.getColumnIndex("id")
 
