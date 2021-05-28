@@ -18,9 +18,12 @@ class TarifDetay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tarif_detay)
 
+
         // @@@@@@ Bir önceki sayfadan gelen kullaniciAdi bilgisini alıyoruz
         val intent = intent
         kullaniciAdi = intent.getStringExtra("kullaniciAdi").toString()
+        var yemekId = intent.getIntExtra("Id",2)
+        Toast.makeText(applicationContext, yemekId.toString(), Toast.LENGTH_SHORT).show()
 
         txtKullaniciAdi2.text = kullaniciAdi
         // @@@@@@ Bir önceki sayfadan gelen kullaniciAdi bilgisini alıyoruz
