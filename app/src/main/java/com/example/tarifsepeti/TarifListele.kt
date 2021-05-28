@@ -107,7 +107,6 @@ class TarifListele : AppCompatActivity() {
             while (cursor.moveToNext()){
                 yemekIsmiListesi.add(cursor.getString(yemekIsmiIndex))
                 yemekIdListesi.add(cursor.getInt(yemekIdIndex))
-
             }
               listeAdapter.notifyDataSetChanged()   //veri değişikliğinde güncellenmesi için
               cursor.close()

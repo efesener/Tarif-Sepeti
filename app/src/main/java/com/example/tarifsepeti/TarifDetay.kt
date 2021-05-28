@@ -19,17 +19,17 @@ class TarifDetay : AppCompatActivity() {
 
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
     var  kullaniciAdi = ""
+    var id = 1
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tarif_detay)
 
-
-
         // @@@@@@ Bir önceki sayfadan gelen kullaniciAdi bilgisini alıyoruz
         val intent = intent
         kullaniciAdi = intent.getStringExtra("kullaniciAdi").toString()
+        id = intent.getIntExtra("Id", 1)
 
         //txtKullaniciAdi2.text = kullaniciAdi
         // @@@@@@ Bir önceki sayfadan gelen kullaniciAdi bilgisini alıyoruz
@@ -41,9 +41,9 @@ class TarifDetay : AppCompatActivity() {
     fun detay() {
         try{
             val database = this.openOrCreateDatabase("Yemekler",Context.MODE_PRIVATE,null)
-            val cursor = database.rawQuery("SELECT * FROM yemekler WHERE id=12345",null) //WHERE
+            val cursor = database.rawQuery("SELECT * FROM yemekler WHERE id = $id",null) //WHERE
 
-            val yemekIsmiIndex = cursor.getColumnIndex("yemekIsmi")
+            val yemekIsmiIndex = cursor.getColumnIndex("yemekismi")
 
             while (cursor.moveToNext()){
                 yemekIsim.text= cursor.getString(yemekIsmiIndex).toString()
