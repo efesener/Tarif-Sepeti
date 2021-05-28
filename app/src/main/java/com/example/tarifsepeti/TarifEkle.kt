@@ -112,7 +112,7 @@ class TarifEkle : AppCompatActivity() {
                     val veritabani = this.openOrCreateDatabase("Yemekler", Context.MODE_PRIVATE,null)
                     veritabani.execSQL("CREATE TABLE IF NOT EXISTS yemekler (id INTEGER PRIMARY KEY , yemekismi VARCHAR, malzemeler VARCHAR, tarif VARCHAR, gorsel BLOB, kullaniciadi VARCHAR)")
 
-                    val sqlString ="INSERT INTO yemekler(yemekismi, malzemeler, tarif, gorsel,kullaniciIsmi) VALUES (?,?,?,?,?)"
+                    val sqlString ="INSERT INTO yemekler(yemekismi, malzemeler, tarif, gorsel, kullaniciadi) VALUES (?,?,?,?,?)"
                     val statement = veritabani.compileStatement(sqlString)
                     statement.bindString(1,yemekIsmi)
                     statement.bindString(2,yemekMalzemeleri)
