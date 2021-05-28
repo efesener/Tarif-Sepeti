@@ -27,9 +27,10 @@ class ListeRecyclerAdapter( val yemekListesi:ArrayList<String> , val idListesi:A
 
     override fun onBindViewHolder(holder: YemekHolder, position: Int) {
         holder.itemView.recycler_list_text.text = yemekListesi[position]
-        // holder.itemView.setOnClickListener {
-
-        //}
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context,TarifDetay::class.java)    //tıklayınca tarif detaya gitmek için
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
 
