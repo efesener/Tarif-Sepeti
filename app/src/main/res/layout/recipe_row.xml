@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    cardView:cardCornerRadius="8dp"
+    cardView:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/recipeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="10dp"
+            android:text="Creamy Lime Pie Square Bites"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            cardView:layout_constraintEnd_toEndOf="parent"
+            cardView:layout_constraintHorizontal_bias="0.0"
+            cardView:layout_constraintStart_toEndOf="@+id/recipeImage"
+            cardView:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/recipeImage"
+            android:layout_width="160dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="4dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:scaleType="centerCrop"
+            cardView:layout_constraintBottom_toBottomOf="parent"
+            cardView:layout_constraintStart_toStartOf="parent"
+            cardView:layout_constraintTop_toTopOf="parent"
+            cardView:layout_constraintVertical_bias="0.495"
+            tools:background="@tools:sample/backgrounds/scenic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ingredintView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            cardView:layout_constraintEnd_toEndOf="parent"
+            cardView:layout_constraintHorizontal_bias="0.533"
+            cardView:layout_constraintStart_toEndOf="@+id/recipeImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/recipeName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

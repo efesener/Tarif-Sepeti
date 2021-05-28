@@ -40,10 +40,8 @@ class TarifListele : AppCompatActivity() {
 
        // txtKullaniciAdi.text = kullaniciAdi
         // @@@@@@ Kullanıcı giriş yaptıktan sonra tarif listeleye düşer ve intentten gelen kullaniciAdi bilgisi tanımlanır
-
     }
 
-    
 
     // @@@@@@ MENU ILE İLGİLİ FONKSİYONLAR
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

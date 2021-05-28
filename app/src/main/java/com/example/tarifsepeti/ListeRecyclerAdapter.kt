@@ -29,6 +29,7 @@ class ListeRecyclerAdapter( val yemekListesi:ArrayList<String> , val idListesi:A
         holder.itemView.recycler_list_text.text = yemekListesi[position]
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context,TarifDetay::class.java)    //tıklayınca tarif detaya gitmek için
+            intent.putExtra("Id", idListesi[position])
             holder.itemView.context.startActivity(intent)
         }
     }
