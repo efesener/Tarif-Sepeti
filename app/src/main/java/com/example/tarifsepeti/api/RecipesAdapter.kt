@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tarifsepeti.R
 import kotlinx.android.synthetic.main.recipe_row.view.*
 
-class RecyclerAdapter(val recipes: ArrayList<RecipeModel>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+// Tarifler recyclerView için adapter
+class RecipesAdapter(val recipes: ArrayList<RecipeModel>) : RecyclerView.Adapter<RecipesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
@@ -23,9 +24,9 @@ class RecyclerAdapter(val recipes: ArrayList<RecipeModel>) : RecyclerView.Adapte
         holder.itemView.recipeName.text = recipes.get(position).isim
         holder.itemView.recipeImage.setImageBitmap(recipes.get(position).image)
 
-        val childLayoutManager = LinearLayoutManager(holder.itemView.ingredintView.context)
+        val childLayoutManager = LinearLayoutManager(holder.itemView.ingredientRecyclerView.context)
 
-        holder.itemView.ingredintView.apply {
+        holder.itemView.ingredientRecyclerView.apply {
             layoutManager = childLayoutManager
             adapter = IngredientAdapter(recipes.get(position).malzemeler)
             setRecycledViewPool(viewPool)

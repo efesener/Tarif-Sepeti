@@ -8,6 +8,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.ImageLoader
 import com.android.volley.toolbox.Volley
 
+// Volley için singleton yapısı
 class MySingleton constructor(context: Context) {
     companion object {
         @Volatile

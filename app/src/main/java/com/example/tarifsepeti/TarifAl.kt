@@ -15,7 +15,7 @@ import com.android.volley.toolbox.ImageRequest
 import com.android.volley.toolbox.JsonArrayRequest
 import com.example.tarifsepeti.api.MySingleton
 import com.example.tarifsepeti.api.RecipeModel
-import com.example.tarifsepeti.api.RecyclerAdapter
+import com.example.tarifsepeti.api.RecipesAdapter
 import kotlinx.android.synthetic.main.activity_tarif_al.*
 import org.json.JSONObject
 
@@ -23,6 +23,8 @@ class TarifAl : AppCompatActivity() {
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
     var  kullaniciAdi = ""
     // @@@@@@ kullanıcı adını global değişken olarak tanımlıyorum ki her fonksiyon içinde kullanabileyim
+
+    val recipes = ArrayList<RecipeModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,8 @@ class TarifAl : AppCompatActivity() {
         val intent = intent
         kullaniciAdi = intent.getStringExtra("kullaniciAdi").toString()
 
+
+        // API ayarları
         val apiKey = "2823c0689b3646e0a135afb43b93a76d"
         var url =
             "https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients="
@@ -90,19 +94,19 @@ class TarifAl : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
-    // @@@@@@ MENU ILE İLGİLİ FONKSİYONLAR
-
-
+    // API' den tarifleri getirir
     fun getRecipes(url: String){
-        val recipes = ArrayList<RecipeModel>()
+        recipes.clear()
         val request =
             JsonArrayRequest(Request.Method.GET, url, null, Response.Listener { response ->
                 for (i in 0 until response.length()) {
                     getRecipeDetail(response.getJSONObject(i), recipes)
                 }
                 recyclerView.layoutManager = LinearLayoutManager(this)
-                recyclerView.adapter = RecyclerAdapter(recipes)
+                val adapter = RecipesAdapter(recipes)
+                recyclerView.adapter = adapter
+                adapter.notifyDataSetChanged()
+
             }, Response.ErrorListener { error ->
                 Toast.makeText(applicationContext, "Tarif Getirilemedi", Toast.LENGTH_SHORT).show()
             })
@@ -110,6 +114,7 @@ class TarifAl : AppCompatActivity() {
         MySingleton.getInstance(this).addToRequestQueue(request)
     }
 
+    // API' den tarif detaylarını getirir
     fun getRecipeDetail(item: JSONObject, recipeList: ArrayList<RecipeModel>){
 
         val recipeName = item.getString("title")

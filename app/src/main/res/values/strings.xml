@@ -9,4 +9,8 @@
     <string name="invalid_username">Kullanıcı adı yanlış!</string>
     <string name="invalid_password">Şifre en az 6 karakterden oluşmalı!</string>
     <string name="login_failed">"Giriş başarısız!"</string>
+    <string name="recipeImage">Recipe Image</string>
+    <string name="inputSearch">Ingredients</string>
+    <string name="searchButton">Tarifleri Getir</string>
+    <string name="inputWarning">Malzemeleri ingilizce ve aralarına virgül koyarak giriniz</string>
 </resources>
