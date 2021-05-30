@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "69354603584",
+    "project_id": "tarifsepeti-3604e",
+    "storage_bucket": "tarifsepeti-3604e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69354603584:android:f8395eb7e82fc707c94ba5",
+        "android_client_info": {
+          "package_name": "com.example.tarifsepeti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69354603584-ilp1f2p05trbp9kbj72g6o81r7dll9e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD90S5xozWGj0EpROxd9tizZ0TD_r9mIFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69354603584-ilp1f2p05trbp9kbj72g6o81r7dll9e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

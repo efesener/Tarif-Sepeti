@@ -2,6 +2,8 @@ package com.example.tarifsepeti
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_tarif_detay.*
 import kotlinx.android.synthetic.main.activity_tarif_ekle.*
 import kotlinx.android.synthetic.main.activity_tarif_listele.*
+import java.io.ByteArrayOutputStream
 import java.lang.Exception
 
 class TarifDetay : AppCompatActivity() {
@@ -44,9 +47,20 @@ class TarifDetay : AppCompatActivity() {
             val cursor = database.rawQuery("SELECT * FROM yemekler WHERE id = $id",null) //WHERE
 
             val yemekIsmiIndex = cursor.getColumnIndex("yemekismi")
+            val yemekMalzemeleriIndex= cursor.getColumnIndex("malzemeler")
+            val yemekTarifiIndex=cursor.getColumnIndex("tarif")
+            val yemekGorsel=cursor.getColumnIndex("gorsel")
+
+
 
             while (cursor.moveToNext()){
                 yemekIsim.text= cursor.getString(yemekIsmiIndex).toString()
+                yemekMalzemeler.text=cursor.getString(yemekMalzemeleriIndex).toString()
+                yemekTarif.text=cursor.getString(yemekTarifiIndex).toString()
+
+                val byteDizisi = cursor.getBlob(yemekGorsel)
+                val bitmap=BitmapFactory.decodeByteArray(byteDizisi,0,byteDizisi.size)
+                yemekResim.setImageBitmap(bitmap)
                 }
 
             cursor.close()

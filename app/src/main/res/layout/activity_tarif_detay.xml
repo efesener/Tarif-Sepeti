@@ -24,10 +24,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/yemekResim"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,6 +44,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageLayout">
 
@@ -45,6 +52,38 @@
             android:id="@+id/yemekIsim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#FF6200EE"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/MalzemelerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MALZEMELER:"
+            android:textColor="#000000"
+            android:textColorHint="#090909"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/yemekMalzemeler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="TextView" />
+
+        <TextView
+            android:id="@+id/yemekTarifText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="YAPILIŞI:"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/yemekTarif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
