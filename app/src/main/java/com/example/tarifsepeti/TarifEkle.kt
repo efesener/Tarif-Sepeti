@@ -131,6 +131,7 @@ class TarifEkle : AppCompatActivity() {
                 intent.putExtra("yemekAdi", yemekIsmi)
                 intent.putExtra("yemekMalzeme", yemekMalzemeleri)
                 intent.putExtra("yemekTarif", yemekTarifi)
+                intent.putExtra("kullaniciAdi", kullaniciAdi)
                 startActivity(intent)
             }
             tarifListele()
