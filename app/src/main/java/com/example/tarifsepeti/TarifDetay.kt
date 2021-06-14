@@ -31,7 +31,6 @@ class TarifDetay : AppCompatActivity() {
 
         // @@@@@@ Bir önceki sayfadan gelen kullaniciAdi bilgisini alıyoruz
         val intent = intent
-        kullaniciAdi = intent.getStringExtra("kullaniciAdi").toString()
         id = intent.getIntExtra("Id", 1)
 
         //txtKullaniciAdi2.text = kullaniciAdi
@@ -50,13 +49,14 @@ class TarifDetay : AppCompatActivity() {
             val yemekMalzemeleriIndex= cursor.getColumnIndex("malzemeler")
             val yemekTarifiIndex=cursor.getColumnIndex("tarif")
             val yemekGorsel=cursor.getColumnIndex("gorsel")
-
+            val kullaniciIndex = cursor.getColumnIndex("kullaniciadi");
 
 
             while (cursor.moveToNext()){
                 yemekIsim.text= cursor.getString(yemekIsmiIndex).toString()
                 yemekMalzemeler.text=cursor.getString(yemekMalzemeleriIndex).toString()
                 yemekTarif.text=cursor.getString(yemekTarifiIndex).toString()
+                kullaniciAdi = cursor.getString((kullaniciIndex)).toString()
 
                 val byteDizisi = cursor.getBlob(yemekGorsel)
                 val bitmap=BitmapFactory.decodeByteArray(byteDizisi,0,byteDizisi.size)
